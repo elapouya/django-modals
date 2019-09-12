@@ -37,7 +37,7 @@ def get_version(pkg):
 
 setup(name='django-modals',
       version=get_version('django_modals'),
-      description='bootstrap alert/confirm dialogs you can customize via django template',
+      description='alert/confirm/error modal dialogs you can customize via django template',
       long_description=long_description,
       classifiers=[
           "Intended Audience :: Developers",
