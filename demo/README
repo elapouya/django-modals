@@ -1,0 +1,27 @@
+To run demo :
+=============
+
+- Install pipenv :
+
+pip install pipenv
+
+- Install python environment :
+
+pipenv sync
+
+- Activate environment :
+
+pipenv shell
+cd demo
+
+- Create database
+
+./manage.py migrate
+
+- Install demo data :
+
+./manage.py inject_listing_demo_data
+
+- Run the demo :
+
+./manage.py runserver
