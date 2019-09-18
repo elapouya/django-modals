@@ -1,0 +1,65 @@
+{% load static %}
+{% load django_modals %}
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>django-modals demo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+</head>
+<body>
+<a href="https://github.com/elapouya/django-modals">
+    <img style="position: absolute; top: 0; left: 0; border: 0;"
+         src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"
+         alt="Fork me on GitHub"></a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>django-modals's Demo (With boostrap)</h1>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h4>Press one of these buttons:</h4>
+            <button id="demo-alert" type="button" class="btn btn-primary">Alert</button>
+            <button id="demo-confirm" type="button" class="btn btn-primary">Confirm</button>
+        </div>
+    </div>
+</div>
+<p class="text-center">
+    <br><br><br><br>
+        <a href="{% url "nobs" %}">Click here to see a version NOT using bootstrap...</a>
+    <br><br><br><br>
+    <span class="text-black-50">© 2019 - An Eric Lapouyade project</span>
+</p>
+
+{% djmodals_dialogs %}
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="{% static "django_modals/js/djmodals.js" %}"></script>
+
+<script>
+$(document).ready(function() {
+  $('#demo-alert').click( function() {
+    djModalsAlert('This is an alert !');
+  });
+
+  $('#demo-confirm').click( function() {
+    djModalsConfirm('Do you wan to marry me ?', function (answer) {
+        if (answer) {
+            djModalsAlert('Wonderful !');
+        } else {
+            djModalsAlert('Arrrrg :(');
+        }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
