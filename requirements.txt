@@ -1,9 +1,9 @@
+-e .
 alabaster==0.7.12
 Babel==2.7.0
 certifi==2019.9.11
 chardet==3.0.4
 Django==2.2.5
--e git+git@github.com:elapouya/django-modals.git@b14434d37fe02cbafdcadd20d4a891ba5dee7981#egg=django_modals
 docutils==0.15.2
 idna==2.8
 imagesize==1.1.0
