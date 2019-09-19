@@ -26,6 +26,7 @@
             <h4>Press one of these buttons:</h4>
             <button id="demo-alert" type="button" class="btn btn-primary">Alert</button>
             <button id="demo-confirm" type="button" class="btn btn-primary">Confirm</button>
+            <button id="demo-prompt" type="button" class="btn btn-primary">Prompt</button>
         </div>
     </div>
 </div>
@@ -36,7 +37,7 @@
     <span class="text-black-50">© 2019 - An Eric Lapouyade project</span>
 </p>
 
-{% djmodals_dialogs %}
+{% djmodals_dialogs "alert,confirm,prompt" %}
 
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -58,6 +59,18 @@ $(document).ready(function() {
         }
     });
   });
+
+  $('#demo-prompt').click( function() {
+    djModalsPrompt('Say something', 'Do not know what to say', function (answer) {
+        if (answer) {
+            djModalsAlert('You said : ' + answer);
+        } else {
+            djModalsAlert('You said nothing !');
+        }
+    });
+  });
+
+
 });
 </script>
 
