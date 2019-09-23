@@ -5,7 +5,6 @@ function djModalsConfirm(message, handler) {
     //Trigger the modal
     $("#djmodals-confirm").modal({
         backdrop: 'static',
-        keyboard: false
     });
 
     // If OK button pressed, pass true to a callback function
@@ -32,7 +31,6 @@ function djModalsPrompt(message, default_value, handler) {
     //Trigger the modal
     $("#djmodals-prompt").modal({
         backdrop: 'static',
-        keyboard: false
     });
 
     // If OK button pressed, pass answer to a callback function
@@ -48,6 +46,14 @@ function djModalsPrompt(message, default_value, handler) {
         handler(false);
         $("#djmodals-prompt").modal("hide");
     });
+
+    $("#djmodals-prompt").on('keypress', function (e) {
+        if (e.which == 13) {
+            handler($("#djmodals-prompt-input").val());
+            $("#djmodals-prompt").modal("hide");
+            e.preventDefault();
+        }
+    });
 }
 
 
@@ -58,6 +64,5 @@ function djModalsAlert(message) {
     //Trigger the modal
     $("#djmodals-alert").modal({
         backdrop: 'static',
-        keyboard: false
     });
 }
